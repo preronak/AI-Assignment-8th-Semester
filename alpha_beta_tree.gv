@@ -1,0 +1,62 @@
+// Alpha-Beta Pruning Tree
+digraph {
+	rankdir=TB
+	Root [label="Root
+(MAX)
+Val: 5
+α:5 | β:∞" shape=triangle]
+	B1 [label="B1
+(MIN)
+Val: 5
+α:-∞ | β:5" shape=invtriangle]
+	C1 [label="C1
+(MAX)
+Val: 5
+α:5 | β:∞" shape=triangle]
+	L1 [label="L1
+Value: 3" shape=box]
+	C1 -> L1 [style=solid]
+	L2 [label="L2
+Value: 5" shape=box]
+	C1 -> L2 [style=solid]
+	B1 -> C1 [style=solid]
+	C2 [label="C2
+(MAX)
+Val: 6
+α:6 | β:5" shape=triangle]
+	L3 [label="L3
+Value: 6" shape=box]
+	C2 -> L3 [style=solid]
+	L4 [label="L4
+Value: 9" shape=box]
+	C2 -> L4 [label=PRUNED color=gray style=dashed]
+	B1 -> C2 [style=solid]
+	Root -> B1 [style=solid]
+	B2 [label="B2
+(MIN)
+Val: 2
+α:5 | β:2" shape=invtriangle]
+	C3 [label="C3
+(MAX)
+Val: 2
+α:5 | β:∞" shape=triangle]
+	L5 [label="L5
+Value: 1" shape=box]
+	C3 -> L5 [style=solid]
+	L6 [label="L6
+Value: 2" shape=box]
+	C3 -> L6 [style=solid]
+	B2 -> C3 [style=solid]
+	C4 [label="C4
+(MAX)
+Val: ?
+α:-∞ | β:∞" shape=triangle]
+	L7 [label="L7
+Value: 0" shape=box]
+	C4 -> L7 [style=solid]
+	L8 [label="L8
+Value: -2" shape=box]
+	C4 -> L8 [style=solid]
+	B2 -> C4 [label=PRUNED color=gray style=dashed]
+	Root -> B2 [style=solid]
+}
